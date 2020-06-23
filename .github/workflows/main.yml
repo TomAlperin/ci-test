@@ -25,7 +25,7 @@ jobs:
     - name: Install
       uses: ianwalter/puppeteer@12728ddef82390d1ecd4732fb543f62177392fbb
       with:
-        args: yarn
+        args: npm test
 
     # Angular Full CI
     - name: Angular Full CI
