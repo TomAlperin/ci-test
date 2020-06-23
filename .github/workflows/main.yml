@@ -21,15 +21,14 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-
-    - name: Install
-      uses: ianwalter/puppeteer@12728ddef82390d1ecd4732fb543f62177392fbb
-      with:
-        args: npm
-
+    - uses: nanasess/setup-chromedriver@master
+    - run: |
+        export DISPLAY=:99
+        chromedriver --url-base=/wd/hub &
+        sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
     # Angular Full CI
-    - name: Test
-      uses: ianwalter/puppeteer@12728ddef82390d1ecd4732fb543f62177392fbb
+    - name: Angular Full CI
+      uses: colbyhill21/angular-full-ci@v1.0
       with:
         # Command to run tests on your project, do not prepend with "npm", it is already included.
-        args: npm test
+        testcommand: test
