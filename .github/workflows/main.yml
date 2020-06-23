@@ -25,11 +25,11 @@ jobs:
     - name: Install
       uses: ianwalter/puppeteer@12728ddef82390d1ecd4732fb543f62177392fbb
       with:
-        args: npm test
+        args: npm
 
     # Angular Full CI
-    - name: Angular Full CI
-      uses: colbyhill21/angular-full-ci@v1.0
+    - name: Test
+      uses: ianwalter/puppeteer@12728ddef82390d1ecd4732fb543f62177392fbb
       with:
         # Command to run tests on your project, do not prepend with "npm", it is already included.
-        testcommand: test
+        args: npm test
